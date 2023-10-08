@@ -1,8 +1,11 @@
+:root {
+    --thememain:rgb(92, 86, 130);
+}
 #weatherdisplay {
-    background-color: rgba(123, 140, 134, 0.554);
+    background-color: rgba(41, 44, 43, 0.801);
 }
 #searchbar {
-    background-color: rgb(162, 175, 184);
+    background-color: var(--thememain)
 }
 * {
     font-family: 'Fira Sans'
@@ -11,5 +14,9 @@ h1 {
     font-size: 40pt;
 }
 body {
-    background-color: rgba(233, 236, 237, 0.626);
+    background-color: rgba(182, 187, 189, 0.626);
+}
+.header {
+    background-color: var(--thememain);
+    color: rgb(211, 218, 212)
 }

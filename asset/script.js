@@ -10,7 +10,7 @@ $('#searchButton').on('click', function (event) {
     // IN ORDER TO USE WEATHER API WE MUST OBEY THEIR RULE SO WE HAVE TO REQUEST FOR LON AND LAT BEFORE WE CAN FIND THE DATA
     function fetchToGeo() {
 
-        requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + search.replace(/\s/g, '').toLowerCase() + ',+1&limit=5&appid=f60935b102f3c62d074d56612d72ebbd';
+        requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + search.replace(/\s/g, '').toLowerCase() + ',US&limit=5&appid=f60935b102f3c62d074d56612d72ebbd';
         var LatIs, LonIs, returnData;
         fetch(requestUrl)
             .then(function (response) {
@@ -28,7 +28,7 @@ $('#searchButton').on('click', function (event) {
                     console.log('Initial Fetch status is:  ' + response.status);
                 }
 
-    // ONCE WE HAVE LAT && LON WE CAN INSERT THAT INTO FUNCTION AND REQUEST FOR THE DATA WE WANT
+                // ONCE WE HAVE LAT && LON WE CAN INSERT THAT INTO FUNCTION AND REQUEST FOR THE DATA WE WANT
                 function fetchtoData(a, b) {
                     requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + a + '&lon=' + b + '&appid=f60935b102f3c62d074d56612d72ebbd';
                     fetch(requestUrl)
@@ -38,29 +38,41 @@ $('#searchButton').on('click', function (event) {
                                     .then(function (data) {
                                         allData = data;
                                         console.log(allData, data);
+                                        var cityName = allData.city.name;
+                                        var cityName = allData.city.name;
+                                        var card = $('<div>').addClass('card mt-3 p-3 m-4');
+                                        var header = $('<h4>').text("Search results for: " + cityName);
+                                        card.append(header);
+                                        $('#weatherdisplay').append(card);
+                                        
+                                        for (var i = 0; i < 39; i++) {
+                                            var Date = allData.list[i].dt_txt.split(" ")[0].split("-")[2];
+                                            var temp = allData.list[i].main.temp;
+                                            var wind = allData.list[i].wind.speed;
+                                            var humid = allData.list[i].main.humidity;
+                                            console.log(temp, wind, humid);
+                                            renderData(Date, temp, wind, humid);
+                                            i+=7;
+                                        }
                                     })
-                                var cityName = allData.city.name;
-                                var Date = allData.list[0].dt;
-                                for( var i=0; i<39;i++){
-                                    var temp= allData.list[i].temp;
-                                    var wind=allData.list[i].wind.speed;
-                                    var humid=allData.list[i].main.humidity;
-                                }
-
                             } else {
                                 alert('Error ' + response.statusText);
                             }
-                            function renderData(a,b,c,d){
-                                var card=$('<div>').addClass('card mt-3 p-3 m-4');
-                                var header=$('<h4>').text(a);
-                                $('<h6>').text(b).append(card);
-                                $('<h6>').text(c).append(card);
-                                $('<h6>').text(d).append(card);
-                                card.append($('#weatherdisplay'));
-
-                            }
-                        })
+                        }
+                    )
                 }
             })
     }
+    function renderData(a, b, c, d) {
+        var card = $('<div>').addClass('card mt-3 p-3 m-4');
+        var header = $('<h4>').text("Weather Forecast for: October "+ a);
+        card.append(header);
+        card.append($('<h6>').text("Temperature is: "+ b + " ◦F"));
+        card.append($('<h6>').text("Wind Speed is: " + c + " MPH"));
+        card.append($('<h6>').text("Humidity is: "+ d + " %"));
+        $('#weatherdisplay').append(card);}
+})
+$(window).keyup(function(e){ 
+    var code = e.key; // recommended to use e.key, it's normalized across devices and languages
+    if(code==="Enter") e.preventDefault();
 })
