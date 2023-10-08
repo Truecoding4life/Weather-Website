@@ -11,37 +11,66 @@
     <link
         href="https://fonts.googleapis.com/css?family=Fira+Sans:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
         rel="stylesheet" />
-    <link rel="stylesheet" href="./asset/styles.css">
-    <script src="./asset/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./asset/styles.css">
 
     <title>Document</title>
 </head>
 
 <body>
-    <div class="header p-5 bg-primary rounded-3 m-2">
+    <div class="header p-4 bg-primary rounded-3 m-4 overflow-hidden">
         <h1> Weather Forecast </h1>
     </div>
 
-    <main class="row vh-100 m-2">
+    <main class="row vh-100 m-4">
 
-        <div class="col-4 vh-100">
-            <div class="bg-warning vh-100 rounded-3">
+        <div id="searchbar" class="col-3 col-lg-2 col-sm-4 vh-100 rounded-3 ">
+            <div class=" vh-100 rounded-3 m-1">
                 <form class="row justify-content-center">
-                    <input class="my-4 w-75 h-45" type=text placeholder="Search by"></input>
+                    <input class="my-4 w-75 h-45 rounded-2" id="search" type=text name="userInput" placeholder="search"></input>
                     <select class="mb-3 w-75 h-45" id="format">
-                        <option value="" class="fs-5">City / Zipcode</option>
+                        <option value="" class="fs-5"> Required</option>
                         <option value="audio">City</option>
                         <option value="audio">Zipcode</option>
                     </select>
-                    <button type="button" class="btn btn-info w-75 h-25 bg-primary" id="search">Search</button>
+                    <button type="button" class="btn btn-info w-75 h-25 bg-primary" id="searchButton">Search</button>
                 </form>
             </div>
         </div>
-        <div id="weather display" class="col-8 bg-info vh-100 rounded-3">
-            <div class=""> </div>
-        </div> 
+        <div id="weatherdisplay" class="col-8 col-lg-10 vh-100 rounded-3">
+            <div class="card mt-3 p-3 m-4">
+                <h3 id="day1">Date</h3>
+                <h6> Temperature </h6>
+                <h6> Wind </h6>
+                <h6> Humidity </h6>
+            </div>
+            <div class="card mt-3 p-3 m-4">
+                <h3 >Date</h3>
+                <h6> Temperature </h6>
+                <h6> Wind </h6>
+                <h6> Humidity </h6>
+            </div>
+            <div class="card mt-3 p-3 m-4">
+                <h3>Date</h3>
+                <h6> Temperature </h6>
+                <h6> Wind </h6>
+                <h6> Humidity </h6>
+            </div>
+            <div class="card mt-3 p-3 m-4">
+                <h3>Date</h3>
+                <h6> Temperature </h6>
+                <h6> Wind </h6>
+                <h6> Humidity </h6>
+            </div>
+            <div class="card mt-3 p-3 m-4">
+                <h3>Date</h3>
+                <h6> Temperature </h6>
+                <h6> Wind </h6>
+                <h6> Humidity </h6>
+            </div>
+        </div>  
     </main>
-
+    
+ <script src="./asset/script.js"></script>
 </body>
 
 </html>
