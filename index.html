@@ -23,23 +23,25 @@
 
     <main class="row vh-100 m-4">
 
-        <div id="searchbar" class="col-3 col-lg-2 col-sm-4 vh-100 rounded-3 ">
+        <div id="searchbar" class="col-3 col-lg-2 col-sm-4 vh-100 rounded-4">
             <div class=" vh-100 rounded-3 m-1">
                 <form class="row justify-content-center">
-                    <input class="my-4 w-75 h-45 rounded-2" id="search" type=text name="userInput" placeholder="search"></input>
+                    <input class="my-4 w-75 h-4 rounded-2" id="search" type=text name="userInput" placeholder="search"></input>
                     <select class="mb-3 w-75 h-45" id="format">
-                        <option value="" class="fs-5"> Required</option>
-                        <option value="audio">City</option>
-                        <option value="audio">Zipcode</option>
+                        <option value="" class="fs-5"> Search by Zipcode</option>
+                        <option value="">City</option>
+                        <option value="Zipcode" type="option" >Zipcode</option>
                     </select>
-                    <button type="button" class="btn btn-info w-75 h-25 bg-primary" id="searchButton">Search</button>
+                    <button type="button" class="btn btn-info w-75 h-25 " id="searchButton">Search</button>
+                    
                 </form>
+                <div id="buttonContainer"></div>
             </div>
         </div>
-        <div id="weatherdisplay" class="col-8 col-lg-10 vh-100 rounded-3">
-         
 
+        <div id="weatherdisplay" class="col-9 col-lg-10 vh-100 rounded-4 ">
         </div>  
+
     </main>
     
  <script src="./asset/script.js"></script>
