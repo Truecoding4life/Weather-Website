@@ -22,7 +22,7 @@ cities.forEach(city => {
         // IN ORDER TO USE WEATHER API WE MUST OBEY THEIR RULE SO WE HAVE TO REQUEST FOR LON AND LAT BEFORE WE CAN FIND THE DATA
         function fetchToGeo() {
 
-            requestUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + search.replace(/\s/g, '').toLowerCase() + '&limit=5&appid=f60935b102f3c62d074d56612d72ebbd';
+            requestUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + search.replace(/\s/g, '').toLowerCase() + '&limit=5&appid=f60935b102f3c62d074d56612d72ebbd';
             var LatIs, LonIs, returnData;
             fetch(requestUrl)
                 .then(function (response) {
