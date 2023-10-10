@@ -2,7 +2,7 @@
     --thememain:rgb(92, 86, 130);
 }
 #weatherdisplay {
-    background-color: rgba(75, 79, 77, 0.801);
+    background-color: rgba(121, 127, 124, 0.801);
 }
 #searchbar {
     background-color: var(--thememain);
@@ -22,4 +22,8 @@ body {
 }
 #searchButton {
 background-color: rgba(225, 172, 28, 0.82);
+}
+
+.btn2 {
+    background-color: rgb(35, 197, 197);
 }
