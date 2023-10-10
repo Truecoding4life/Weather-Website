@@ -56,7 +56,7 @@ cities.forEach(city => {
                                                 cities.push(cityName);
                                             localStorage.setItem("cities", JSON.stringify(cities));
                                             var button = $('<button>');
-                                            button.text(cityName);
+                                            button.text(cityName).addClass('col-6 align-items-center');
                                             button.val(cityName);
 
                                             buttoncontainer.append(button);
