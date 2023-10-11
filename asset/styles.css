@@ -3,9 +3,12 @@
 }
 #weatherdisplay {
     background-color: rgba(121, 127, 124, 0.801);
+    height: 1250px;
+
 }
 #searchbar {
     background-color: var(--thememain);
+    height: 1250px;
 }
 * {
     font-family: 'Fira Sans'

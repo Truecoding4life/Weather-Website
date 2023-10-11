@@ -2,6 +2,8 @@ $(document).ready(function () {
 var buttoncontainer=$('#buttonContainer');
 console.log(buttoncontainer);
 var cities = JSON.parse(localStorage.getItem("cities")) || [];
+console.log()
+console.log(cities);
 cities.forEach(city => {
     var button = $('<button>');
     console.log(button);
@@ -12,12 +14,13 @@ cities.forEach(city => {
     var searchInput = $('input[name="userInput"]');
     var requestUrl;
     $('#searchButton').on('click', function (event) {
-        event.preventDefault;
+        // event.preventDefault;
         
        var search = searchInput.val();
         console.log(search);
-        fetchToGeo();
-
+        $('#weatherdisplay').empty();
+        fetchToGeo(search);
+     
 
         // IN ORDER TO USE WEATHER API WE MUST OBEY THEIR RULE SO WE HAVE TO REQUEST FOR LON AND LAT BEFORE WE CAN FIND THE DATA
         function fetchToGeo() {
@@ -42,6 +45,7 @@ cities.forEach(city => {
 
                     // ONCE WE HAVE LAT && LON WE CAN INSERT THAT INTO FUNCTION AND REQUEST FOR THE DATA WE WANT
                     function fetchtoData(a, b) {
+        
                         requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + a + '&lon=' + b + '&appid=f60935b102f3c62d074d56612d72ebbd';
                         fetch(requestUrl)
                             .then(function (response) {
@@ -58,13 +62,14 @@ cities.forEach(city => {
                                             var button = $('<button>');
                                             button.text(cityName).addClass('col-6 align-items-center btn2 ');
                                             button.val(cityName);
-
+                                            
                                             buttoncontainer.append(button);
                                             }
                                             var card = $('<div>').addClass('card mt-3 p-3 m-4');
                                             console.log(cityName);
                                             var header = $('<h4>').text("Search results for: " + cityName);
                                             card.append(header);
+                                
                                             $('#weatherdisplay').append(card);
 
                                             for (var i = 0; i < 39; i++) {
@@ -101,4 +106,4 @@ cities.forEach(city => {
         var code = e.key; // recommended to use e.key, it's normalized across devices and languages
         if (code === "Enter") e.preventDefault();
     })
-})
+} )  
