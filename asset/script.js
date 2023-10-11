@@ -58,18 +58,17 @@ cities.forEach(city => {
                                             var cityName = allData.city.name;
                                             if (!cities.includes(cityName)){
                                                 cities.push(cityName);
-                                            localStorage.setItem("cities", JSON.stringify(cities));
-                                            var button = $('<button>');
-                                            button.text(cityName).addClass('col-6 align-items-center btn2 ');
-                                            button.val(cityName);
-                                            
-                                            buttoncontainer.append(button);
+                                                localStorage.setItem("cities", JSON.stringify(cities));
+                                                var button = $('<button>');
+                                                button.text(cityName).addClass('col-6 align-items-center');
+                                                button.val(cityName).attr("id", "cityButton");
+                                                buttoncontainer.append(button);
                                             }
                                             var card = $('<div>').addClass('card mt-3 p-3 m-4');
                                             console.log(cityName);
                                             var header = $('<h4>').text("Search results for: " + cityName);
                                             card.append(header);
-                                
+
                                             $('#weatherdisplay').append(card);
 
                                             for (var i = 0; i < 39; i++) {
@@ -107,3 +106,6 @@ cities.forEach(city => {
         if (code === "Enter") e.preventDefault();
     })
 } )  
+$('#cityButton').on('click', function (event) {
+    console.log(" I just got clicked " + event.target);
+});
